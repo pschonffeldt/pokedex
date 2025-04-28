@@ -1,0 +1,1 @@
+This is my first web app to be deployed. After working on this project during my certification, I believe it's cute and functional enough to publish. The intention is to add it to my portfolio.
