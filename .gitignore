@@ -1,16 +1,19 @@
-# System files
+# macOS files
 .DS_Store
 
-# Node.js dependencies
+# System files
+Thumbs.db
+
+# IDE folders
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# Node modules
 node_modules/
 
 # Build output
 dist/
 build/
-
-# Sensitive info
-.env
-
-# IDE files
-.vscode/
-.idea/
