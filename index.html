@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Pokédex Explorer</title>
+</head>
+<body>
+  <div class="app">
+    <!-- SEARCH SECTION -->
+    <div class="app__search">
+      <div class="app__header">
+        <div class="pokeball">
+          <div class="line"></div>
+          <div class="center-ring">
+            <div class="center-dot"></div>
+          </div>
+        </div>
+        <h1 class="app__title">Pokédex Explorer</h1>
+      </div>
+
+      <div class="input-wrapper">
+        <i class="fa fa-search"></i>
+        <input id="search-input" placeholder="e.g. Pikachu or 25" required />
+      </div>
+
+      <div class="app__buttons">
+        <button id="search-button">Search</button>
+        <button id="random-button">Random</button>
+        <button id="clear-button">Clear</button>
+      </div>
+    </div>
+
+    <!-- STATS SECTION -->
+    <div class="app__stats">
+      <!-- NAME + NUMBER -->
+      <div class="app__stats-name-nr">
+        <div id="pokemon-name"></div>
+        <div id="pokemon-id"></div>
+      </div>
+
+      <!-- SPRITE + TYPE -->
+      <div class="app__stats-sprite-type">
+        <div id="sprite-container"></div>
+        <div id="types-text"></div>
+        <div id="types"></div>
+      </div>
+
+      <!-- WEIGHT + HEIGHT -->
+      <div class="app__stats-weight-height">
+        <div class="app__stats-weight-wrapper">
+          <div id="weight"></div>
+          <div id="weight-text">
+            <p class="app__stats-weight"></p>
+          </div>
+        </div>
+        <div class="app__stats-divider" id="stats-divider"></div>
+        <div class="app__stats-height-wrapper">
+          <div id="height"></div>
+          <div id="height-text">
+            <p class="app__stats-weight"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BASE STATS HEADING -->
+      <div id="base-stats"></div>
+
+      <!-- STAT ROWS -->
+      <div class="app__stats-base-wrapper hidden" id="stat-bars-wrapper">
+
+        <!-- Raw values for FCC -->
+        <div class="app__stats-base" id="stats-container">
+          <div id="hp"></div>
+          <div id="attack"></div>
+          <div id="defense"></div>
+          <div id="special-attack"></div>
+          <div id="special-defense"></div>
+          <div id="speed"></div>
+        </div>
+      
+        <!-- Visual stat bars -->
+        <div class="app__stats-bar">
+          <div class="stat-row" id="hp-visual">
+            <div class="stat-label">HP</div>
+            <div class="bar"><div class="fill"></div></div>
+          </div>
+          <div class="stat-row" id="attack-visual">
+            <div class="stat-label">ATK</div>
+            <div class="bar"><div class="fill"></div></div>
+          </div>
+          <div class="stat-row" id="defense-visual">
+            <div class="stat-label">DEF</div>
+            <div class="bar"><div class="fill"></div></div>
+          </div>
+          <div class="stat-row" id="special-attack-visual">
+            <div class="stat-label">SATK</div>
+            <div class="bar"><div class="fill"></div></div>
+          </div>
+          <div class="stat-row" id="special-defense-visual">
+            <div class="stat-label">SDEF</div>
+            <div class="bar"><div class="fill"></div></div>
+          </div>
+          <div class="stat-row" id="speed-visual">
+            <div class="stat-label">SPD</div>
+            <div class="bar"><div class="fill"></div></div>
+          </div>
+        </div>
+      </div>
+      
+
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="app__footer">
+      <p class="app__footer-text">
+        Pokédex Explorer © 2025 - Developed by pschonffeldt - Powered by the PokéAPI
+      </p>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
