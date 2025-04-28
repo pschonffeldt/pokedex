@@ -1,0 +1,16 @@
+# System files
+.DS_Store
+
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Sensitive info
+.env
+
+# IDE files
+.vscode/
+.idea/
