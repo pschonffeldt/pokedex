@@ -16,7 +16,7 @@ const pokemonTypesText = document.getElementById("types-text");
 const baseStats = document.getElementById("base-stats");
 const spriteContainer = document.getElementById("sprite-container");
 const statsContainer = document.getElementById("stats-container");
-const statBarsWrapper = document.getElementById("stat-bars-wrapper"); // 🔥 new
+const statBarsWrapper = document.getElementById("stat-bars-wrapper");
 
 const statLabels = {
   hp: "HP",
@@ -52,7 +52,7 @@ const setPokemonInfo = (data) => {
   const { name, id, weight, height, types, sprites, stats } = data;
 
   statsContainer.classList.remove("hidden");
-  statBarsWrapper.classList.remove("hidden"); // 🔥 show bars when loading a Pokémon
+  statBarsWrapper.classList.remove("hidden");
 
   pokemonName.textContent = name.toUpperCase();
   pokemonId.textContent = `#${id}`;
