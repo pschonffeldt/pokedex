@@ -57,6 +57,7 @@
   /* === App Container === */
   .app {
     display: flex;
+    display: block;
     flex-direction: column;
     justify-content: space-between;
     width: 360px;
@@ -374,11 +375,56 @@
   }
 
 
-  /* Mobile */
+  .too__small {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  
+  /* === Tablet === */
+  @media (min-width: 481px) and (max-width: 1023px) {
+    html, body {
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      font-family: var(--font-main);
+      background-color: var(--accent-color);
+    }
+
+    .app {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 80%;
+      height: 640px;
+    }
+    
+    button {
+      color: black;
+    }
+    
+    #search-input {
+      font-size: 16px;
+    }
+
+    .too__small {
+      display: none;
+    }
+  }
+  
+  /* === Mobile === */
   @media (max-width: 480px) {
     html, body {
       overflow: hidden;
-      /* height: 100%; */
     }
     body {
       display: flex;
@@ -405,6 +451,87 @@
 
     #search-input {
       font-size: 16px;
+    }
+  }
+  
+  /* === Mobile small === */
+  @media (max-width: 290px) {
+    html, body {
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: 100vh;
+      width: 100vw;
+      background-color: var(--primary-color);
+      padding-top: 0;
+    }
+
+    .app {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .app__search {
+      min-height: 50px;
+    }
+
+    .pokeball {
+      display: none
+    }
+
+    .app__title {
+      font-size: 18px;
+    }
+
+    .app__stats {
+      max-height: fit-content;
+
+    }
+
+    button {
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+
+    }
+
+    #search-input {
+      font-size: 16px;
+    }
+  }
+
+  /* === Below small === */
+  @media (max-width: 250px) {
+    .app {
+      display: none !important;
+    }
+  
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+  
+    .too__small {
+      display: block !important;
+      text-align: left;
+      width: 80%;
+      font-size: 18px;
+      background: var(--white-background);
+      /* border: 4px solid var(--text-light); */
+      border-radius: 8px;
     }
   }
   
