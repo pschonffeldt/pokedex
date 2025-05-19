@@ -177,6 +177,11 @@
   }
   
   /* === Stats Container === */
+  #app__instructions {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
   .app__stats {
     display: flex;
     flex-direction: column;

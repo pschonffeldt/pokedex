@@ -18,6 +18,8 @@ const spriteContainer = document.getElementById("sprite-container");
 const statsContainer = document.getElementById("stats-container");
 const statBarsWrapper = document.getElementById("stat-bars-wrapper");
 
+const instructions = document.getElementById("app__instructions");
+
 const statLabels = {
   hp: "HP",
   attack: "ATK",
@@ -53,6 +55,9 @@ const setPokemonInfo = (data) => {
 
   statsContainer.classList.remove("hidden");
   statBarsWrapper.classList.remove("hidden");
+
+  instructions.textContent = "";
+
 
   pokemonName.textContent = name.toUpperCase();
   pokemonId.textContent = `#${id}`;
@@ -118,8 +123,13 @@ const clearPokemon = () => {
 
   // Clear stat bars and hide wrapper
   document.querySelectorAll(".stat-row .fill").forEach(fill => fill.style.width = "0%");
-  statBarsWrapper.classList.add("hidden"); // 🔥 hide bars on clear
+  statBarsWrapper.classList.add("hidden");
   statsContainer.classList.add("hidden");
+
+  // Display instructions
+  instructions.textContent = `Enter a Pokémon's name or number in the search bar and click "Search." You can also click "Random" to find a random Pokémon, or use the "Clear" button to reset the Pokédex.`;
+
+
 };
 
 searchButton.addEventListener("click", (e) => {
