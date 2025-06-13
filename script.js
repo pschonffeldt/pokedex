@@ -16,6 +16,7 @@ const pokemonTypesText = document.getElementById("types-text");
 const baseStats = document.getElementById("base-stats");
 const spriteContainer = document.getElementById("sprite-container");
 const statsContainer = document.getElementById("stats-container");
+const statsMainContainer = document.getElementById("app__stats");
 const statBarsWrapper = document.getElementById("stat-bars-wrapper");
 
 const instructions = document.getElementById("app__instructions");
@@ -34,7 +35,9 @@ const getPokemon = async () => {
     const pokemonNameOrId = searchInput.value.toLowerCase();
     if (!pokemonNameOrId) return;
 
-    const res = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`);
+    const res = await fetch(
+      `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`
+    );
     const data = await res.json();
     setPokemonInfo(data);
   } catch (err) {
@@ -58,10 +61,9 @@ const setPokemonInfo = (data) => {
 
   instructions.textContent = "";
 
-
   pokemonName.textContent = name.toUpperCase();
   pokemonId.textContent = `#${id}`;
-  pokemonId.style.color = (id === 420) ? "green" : "black";
+  pokemonId.style.color = id === 420 ? "green" : "black";
 
   spriteContainer.innerHTML = `<img id="sprite" class="fadeIn" style="animation-delay: 0.2s;" src="${sprites.front_default}" alt="${name}" />`;
 
@@ -80,7 +82,12 @@ const setPokemonInfo = (data) => {
   baseStats.textContent = "Base Stats";
 
   const statOrder = [
-    "hp", "attack", "defense", "special-attack", "special-defense", "speed",
+    "hp",
+    "attack",
+    "defense",
+    "special-attack",
+    "special-defense",
+    "speed",
   ];
 
   statOrder.forEach((statName, i) => {
@@ -107,29 +114,38 @@ const setPokemonInfo = (data) => {
 };
 
 const clearPokemon = () => {
-  pokemonName.textContent = "";
-  pokemonId.textContent = "";
-  spriteContainer.innerHTML = "";
-  pokemonTypes.innerHTML = "";
-  pokemonTypesText.textContent = "";
-  pokemonWeight.textContent = "";
-  pokemonHeight.textContent = "";
-  weightText.textContent = "";
-  heightText.textContent = "";
+  // Clear textContent for multiple elements
+  const textElements = [
+    pokemonName,
+    pokemonId,
+    pokemonTypesText,
+    pokemonWeight,
+    pokemonHeight,
+    weightText,
+    heightText,
+    baseStats,
+  ];
+  textElements.forEach((el) => (el.textContent = ""));
 
-  baseStats.textContent = "";
+  // Clear innerHTML for containers
+  const htmlElements = [spriteContainer, pokemonTypes];
+  htmlElements.forEach((el) => (el.innerHTML = ""));
+
+  // Clear search input
   searchInput.value = "";
-  if (statsDivider) statsDivider.style.display = "none";
 
-  // Clear stat bars and hide wrapper
-  document.querySelectorAll(".stat-row .fill").forEach(fill => fill.style.width = "0%");
+  // Hide optional elements
+  if (statsDivider) statsDivider.style.display = "none";
   statBarsWrapper.classList.add("hidden");
   statsContainer.classList.add("hidden");
 
-  // Display instructions
+  // Reset stat bar widths
+  document
+    .querySelectorAll(".stat-row .fill")
+    .forEach((fill) => (fill.style.width = "0%"));
+
+  // Reset instructions
   instructions.textContent = `Enter a Pokémon's name or number in the search bar and click "Search." You can also click "Random" to find a random Pokémon, or use the "Clear" button to reset the Pokédex.`;
-
-
 };
 
 searchButton.addEventListener("click", (e) => {
