@@ -114,39 +114,65 @@ const setPokemonInfo = (data) => {
 };
 
 const clearPokemon = () => {
-  // Clear textContent for multiple elements
-  const textElements = [
-    pokemonName,
-    pokemonId,
-    pokemonTypesText,
-    pokemonWeight,
-    pokemonHeight,
-    weightText,
-    heightText,
-    baseStats,
-  ];
-  textElements.forEach((el) => (el.textContent = ""));
+  pokemonName.textContent = "";
+  pokemonId.textContent = "";
+  spriteContainer.innerHTML = "";
+  pokemonTypes.innerHTML = "";
+  pokemonTypesText.textContent = "";
+  pokemonWeight.textContent = "";
+  pokemonHeight.textContent = "";
+  weightText.textContent = "";
+  heightText.textContent = "";
 
-  // Clear innerHTML for containers
-  const htmlElements = [spriteContainer, pokemonTypes];
-  htmlElements.forEach((el) => (el.innerHTML = ""));
-
-  // Clear search input
+  baseStats.textContent = "";
   searchInput.value = "";
-
-  // Hide optional elements
   if (statsDivider) statsDivider.style.display = "none";
-  statBarsWrapper.classList.add("hidden");
-  statsContainer.classList.add("hidden");
 
-  // Reset stat bar widths
+  // Clear stat bars and hide wrapper
   document
     .querySelectorAll(".stat-row .fill")
     .forEach((fill) => (fill.style.width = "0%"));
+  statBarsWrapper.classList.add("hidden");
+  statsContainer.classList.add("hidden");
 
-  // Reset instructions
+  // Display instructions
   instructions.textContent = `Enter a Pokémon's name or number in the search bar and click "Search." You can also click "Random" to find a random Pokémon, or use the "Clear" button to reset the Pokédex.`;
 };
+
+// const clearPokemon = () => {
+//   // Clear textContent for multiple elements
+//   const textElements = [
+//     pokemonName,
+//     pokemonId,
+//     pokemonTypesText,
+//     pokemonWeight,
+//     pokemonHeight,
+//     weightText,
+//     heightText,
+//     baseStats,
+//   ];
+//   textElements.forEach((el) => (el.textContent = ""));
+
+//   // Clear innerHTML for containers
+//   const htmlElements = [spriteContainer, pokemonTypes];
+//   htmlElements.forEach((el) => (el.innerHTML = ""));
+
+//   // Clear search input
+//   searchInput.value = "";
+
+//   // Hide optional elements
+//   if (statsDivider) statsDivider.style.display = "none";
+//   statBarsWrapper.classList.add("hidden");
+//   statsContainer.classList.add("hidden");
+
+//   // Reset stat bar widths
+//   document
+//     .querySelectorAll(".stat-row .fill")
+//     .forEach((fill) => (fill.style.width = "0%"));
+
+//   // Reset instructions
+//   instructions.textContent = `Enter a Pokémon's name or number in the search bar and click "Search." You can also click "Random" to find a random Pokémon, or use the "Clear" button to reset the Pokédex.`;
+// };
 
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
